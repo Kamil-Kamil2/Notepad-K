@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notepad</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
+  </head>
+  <body>
+    <div class="all">
+      <div class="sidebar">
+        <div class="flex">
+          <img src="images/logo.png" alt="logo" />
+          <h1>Notepad</h1>
+        </div>
+        <hr />
+        <button id="create">+Create</button>
+        <ul id="cont">
+          <!-- samples -->
+          <!-- <li>
+            <span>
+              <p>First Notes</p>
+              <button class="delete">delete</button>
+            </span>
+          </li>
+
+          <li>
+            <span class="openedNote">
+              <p>Classnotes</p>
+              <button class="delete">delete</button>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <p>Random Notes</p>
+              <button class="delete">delete</button>
+            </span>
+          </li> -->
+          <!-- End samples -->
+        </ul>
+        <button id="delete" class="delete">Delete Note</button>
+      </div>
+      <!-- !sidebar -->
+
+      <div id="textField">
+        <div class="labels">
+          <h2 id="noteName">Loading...</h2>
+          <button id="save">✓Save</button>
+        </div>
+        <textarea id="notePad" rows="40vh" cols="56%"></textarea>
+      </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="box">
+      <h2 class="creating">Create New NotePad</h2>
+      <h3 class="newName">Name:</h3>
+      <input type="text" id="newName" maxlength="12" /><br />
+      <button id="cancel">Cancel</button><button id="finalize">Done</button>
+    </div>
+
+    <div id="box2">
+      <h2 class="creating">
+        Select the Name of the note<br />
+        you want to delete:
+      </h2>
+      <ol id="toDelete">
+        <!-- Samples
+        <li><button>Note 1</button></li> -->
+      </ol>
+      <button id="cancel2">Cancel</button>
+    </div>
+
+    <script src="index.js"></script>
+    <div class="center">
+      <h1>No Notes Open Yet</h1>
+      <h3>
+        To Open A Note<br />Press the +Create Button or Click on Created Notes
+      </h3>
+    </div>
+  </body>
+</html>

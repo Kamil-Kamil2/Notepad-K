@@ -1,0 +1,772 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: block; /* Changed from inline-block for typical body behavior */
+  background-color: #003049;
+}
+
+.all {
+  display: flex;
+}
+
+.flex {
+  display: flex;
+  height: 60px;
+  margin: 10px;
+  color: #ffffff;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  translate: 3px 13px;
+  cursor: pointer; /* Corrected typo: poiner -> pointer */
+}
+
+.sidebar {
+  border: solid rgb(32, 32, 32) 4px;
+  width: 250px;
+  height: 100vh; /* Changed from 111vh to prevent unnecessary scrollbar */
+  text-align: center;
+  background-color: rgb(32, 32, 32);
+}
+
+#create {
+  margin-top: 20px;
+  font-size: 20px;
+  height: 45px;
+  width: 150px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(0, 145, 255);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 1rem black;
+  transition: all 0.3s linear;
+}
+
+#create:hover {
+  background-color: orange;
+  transform: scale(0.95);
+  transition: all 0.3s linear;
+}
+
+#create:active {
+  background-color: black;
+  transform: scale(0.9);
+  transition: all 0s linear;
+}
+
+ul {
+  list-style-type: none;
+  border: none white 2px;
+  height: 400px;
+  overflow: auto;
+  margin-left: -10px;
+  margin-right: 20px;
+}
+
+.pad {
+  margin-left: -20px;
+  margin-bottom: -8px;
+}
+
+li span {
+  margin-right: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 195px;
+  height: 27px;
+  display: block;
+  text-align: left;
+  padding: 0 15px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  margin-bottom: -10px;
+  font-size: 20px;
+  margin-left: -20px;
+  border: black solid 0.5px; 
+}
+
+li span:hover {
+  background-color: rgb(255, 215, 0, 0.8);
+  transition: all 0.2s linear;
+}
+
+li .openedNote {
+  margin-right: 0;
+  background-color: rgb(0, 145, 255, 0.8);
+  width: 195px;
+  height: 27px;
+  display: block;
+  text-align: left;
+  padding: 0 15px;
+  transition: all 0.2s linear;
+  font-size: 20px;
+  color: white;
+}
+
+li .openedNote:hover {
+  color: white;
+  background-color: rgb(0, 47, 82, 0.7);
+}
+
+.delete {
+  margin-top: 20px;
+  font-size: 20px;
+  height: 45px;
+  width: 150px;
+  border: none;
+  border-radius: 15px;
+  background-color: orangered;
+  color: white;
+  cursor: pointer;
+  translate: -70px 10px;
+  position: fixed;
+  box-shadow: 0 0 1rem black;
+  transition: all 0.3s linear;
+}
+
+.delete:hover {
+  background-color: red;
+  transform: scale(0.95);
+  box-shadow: 0 0 1.4rem rgb(255, 0, 0);
+  transition: all 0.3s linear;
+}
+
+.delete:active {
+  background-color: black;
+  transform: scale(0.9);
+  transition: all 0s linear;
+}
+
+#notePad {
+  width: 959px;
+  height: 75vh;
+  outline: none;
+  border: none rgb(29, 110, 209) 3px;
+  border-radius: 0 0 20px 20px;
+  resize: none;
+  padding: 20px;
+  translate: 14.8vh -47px;
+  font-size: 20px;
+  border-top: none;
+  z-index: -1;
+}
+
+.labels {
+  text-align: center;
+  background: rgb(0, 145, 255);
+  width: 999px;
+  color: white;
+  border-radius: 20px 20px 0 0;
+  font-size: 2rem;
+  translate: 14.8vh -10px;
+}
+
+.labels button {
+  text-align: center;
+  background-color: gold;
+  color: black;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  border: none;
+  margin-top: -100px;
+  translate: 0 -45px;
+  padding: 5px 20px 5px 20px;
+  width: 100px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.labels button:hover {
+  background-color: black;
+  color: gold;
+  transform: scale(1.1);
+  transition: all 0.3s linear;
+}
+
+.labels button:active {
+  background-color: cyan;
+  color: black;
+  transform: scale(1.1);
+  transition: all 0s linear;
+}
+
+#box {
+  position: absolute;
+  background: gold;
+  height: fit-content;
+  width: fit-content;
+  padding: 30px;
+  text-align: center;
+  z-index: 100;
+  margin-top: -50vh;
+  border: solid gold 5px;
+  border-radius: 40px;
+  translate: 40vh -55vh;
+  position: fixed;
+  display: none;
+}
+
+#box2 {
+  position: absolute;
+  background: rgb(255, 111, 0);
+  height: fit-content;
+  width: fit-content;
+  padding: 30px;
+  text-align: center;
+  z-index: 100;
+  margin-top: -50vh;
+  border: solid rgb(255, 111, 0) 5px;
+  border-radius: 40px;
+  translate: 38vh -10vh;
+  position: fixed;
+  display: none;
+}
+
+#box2 ol {
+  list-style-type: none;
+  height: 100px;
+  border: none black;
+  overflow: auto;
+  padding: 10px;
+  border-radius: 5px; /* Added missing border-radius value */
+}
+
+#box2 ol li{
+  margin: 10px;
+}
+
+#box2 ol button{
+  color: white;
+  transform: scale(1.3);
+  border: none;
+  background: rgb(0, 145, 255);
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+#box2 ol button:hover{
+  background: rgb(119, 0, 0);
+  transition: all 0.2s linear;
+}
+
+#box2 #cancel2{
+  color: white;
+  transform: scale(1.3);
+  border: none;
+  background: rgb(49, 49, 49);
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 248px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+#box2 #cancel2:hover{
+  background: rgb(0, 0, 0);
+  transform: scale(1.22);
+}
+
+#box2 #finalize2{
+  color: white;
+  transform: scale(1.3);
+  border: none;
+  background: rgb(119, 0, 0);
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 8px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+#box2 #finalize2:hover{
+  background: rgb(222, 0, 0); /* Corrected extra '0)' */
+  transform: scale(1.22);
+}
+
+.creating {
+  margin-top: 5px;
+}
+
+#newName {
+  margin-bottom: 30px;
+  height: 30px;
+  outline: none;
+  text-align: center;
+  border: solid black;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+#cancel {
+  margin-right: 90px;
+  border: none;
+  height: 40px;
+  width: 80px;
+  border-radius: 20px;
+  font-size: 15px;
+  background: rgb(153, 0, 0);
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#cancel:hover {
+  box-shadow: 0 0 1rem red;
+  transition: all 0.5s;
+}
+
+#finalize {
+  border: none;
+  height: 40px;
+  width: 80px;
+  border-radius: 20px;
+  font-size: 16px;
+  background: rgb(0, 154, 21);
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#finalize:hover {
+  box-shadow: 0 0 1rem rgb(0, 255, 68);
+  transition: all 0.5s;
+}
+
+#finalize:active {
+  background: black;
+  color: white;
+  transform: scale(0.95);
+  box-shadow: 0 0 2rem rgb(0, 255, 68);
+  transition: all 0s;
+}
+
+.center{
+  margin-top: -39%;
+  translate: 79vh;
+  text-align: center;
+  color: white;
+  z-index: -99;
+  position: fixed;
+}
+
+@media(max-width: 600px){
+  * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    display: block;
+    background-color: #003049;
+    transform: scale(0.62); 
+    transform-origin: top left;
+  }
+  
+  .all {
+    display: flex;
+  }
+  
+  .flex {
+    display: flex;
+    height: 60px;
+    margin: 10px;
+    color: white;
+    margin-bottom: 50px;
+  }
+  
+  .flex h1{
+    font-size: 50px;
+    translate: 0 -23px;
+
+  }
+
+  .flex img {
+    width: 60px;
+    height: 60px;
+    translate: 3px 7px;
+    cursor: pointer; /* Corrected typo: poiner -> pointer */
+    margin-left: 37vh;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar {
+    border: solid rgb(32, 32, 32) 4px;
+    height: 390px;
+    width: 110vh;
+    background-color: rgb(32, 32, 32);
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s linear;
+  }
+  
+  #create {
+    margin-top: 20px;
+    font-size: 20px;
+    height: 45px;
+    width: 150px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(0, 145, 255);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 1rem black;
+    translate: 0 -30px;
+    transition: all 0.3s linear;
+    transform: scale(1.4);
+  }
+  
+  #create:hover {
+    background-color: orange;
+    transform: scale(1.3);
+    transition: all 0.3s linear;
+  }
+  
+  #create:active {
+    background-color: black;
+    transform: scale(1.2);
+    transition: all 0s linear;
+  }
+  
+  ul {
+    list-style-type: none;
+    border: none black 2px;
+    height: 132px;
+    padding-right: 5px;
+    overflow: auto;
+    margin-top: -10px;
+    margin-left: 145px;
+    width: 90vw; /* Changed from 170vw to prevent horizontal scroll */
+  }
+  
+  .pad {
+    margin-left: -20px;
+    margin-bottom: -8px;
+  }
+  
+  li span {
+    margin-right: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 195px;
+    height: 27px;
+    display: block;
+    text-align: left;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    margin-bottom: 0px;
+    font-size: 20px;
+    margin-left: 25%;
+    transform:scale(1.4);
+    border: black solid 0.5px; 
+  }
+  
+  li span:hover {
+    background-color: gold;
+    transition: all 0.2s linear;
+  }
+  
+  li .openedNote {
+    margin-right: 0;
+    background-color: rgb(0, 145, 255, 0.8);
+    width: 195px;
+    height: 27px;
+    display: block;
+    text-align: left;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+    font-size: 20px;
+    color: white;
+  }
+  
+  li .openedNote:hover {
+    color: white;
+    background-color: rgb(0, 47, 82, 0.8);
+  }
+  
+  .delete {
+    margin-top: 20px;
+    font-size: 20px;
+    height: 45px;
+    width: 150px;
+    border: none;
+    border-radius: 15px;
+    background-color: orangered;
+    color: white;
+    cursor: pointer;
+    translate: 0 -17px;
+    box-shadow: 0 0 1rem black;
+    transition: all 0.3s linear;
+    position: relative;
+    transform: scale(1.4);
+  }
+  
+  .delete:hover {
+    background-color: red;
+    transform: scale(0.95);
+    box-shadow: 0 0 1.4rem rgb(255, 0, 0);
+    transition: all 0.3s linear;
+  }
+  
+  .delete:active {
+    background-color: black;
+    transform: scale(0.9);
+    transition: all 0s linear;
+  }
+  
+  #notePad {
+    width: 90vh;
+    height: 126vh;
+    outline: none;
+    border: none rgb(29, 110, 209) 3px;
+    border-radius: 0 0 20px 20px;
+    resize: none;
+    padding: 20px;
+    translate: 7vh 387px;
+    font-size: 20px;
+    border-top: none;
+    z-index: -100;
+  }
+  
+  .labels {
+    text-align: center;
+    background: rgb(0, 145, 255);
+    width: 95.05vh;
+    color: white;
+    border-radius: 20px 20px 0 0;
+    font-size: 2rem;
+    translate: 7vh 387px;
+  }
+  
+  .labels button {
+    text-align: center;
+    background-color: gold;
+    color: black;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: none;
+    margin-top: -100px;
+    translate: 0 -45px;
+    padding: 5px 20px 5px 20px;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+  }
+  
+  .labels button:hover {
+    background-color: black;
+    color: gold;
+    transform: scale(1.1);
+    transition: all 0.3s linear;
+  }
+  
+  .labels button:active {
+    background-color: cyan;
+    color: black;
+    transform: scale(1.1);
+    transition: all 0s linear;
+  }
+  
+  #box {
+    position: absolute;
+    background: gold;
+    height: fit-content;
+    width: fit-content;
+    padding: 30px;
+    text-align: center;
+    z-index: 100;
+    margin-top: -50vh;
+    border: solid gold 5px;
+    border-radius: 40px;
+    translate: 33vh 105vh;
+    position: fixed;
+    transform: scale(1.5);
+    display: none;
+  }
+  
+  #box2 {
+    position: absolute;
+    background: rgb(255, 111, 0);
+    height: fit-content;
+    width: fit-content;
+    padding: 30px;
+    text-align: center;
+    z-index: 100;
+    margin-top: -50vh;
+    border: solid rgb(255, 111, 0) 5px;
+    border-radius: 40px;
+    translate: 30vh 135vh;
+    position: fixed;
+    transform: scale(1.5);
+    display: none;
+  }
+  
+  #box2 ol {
+    list-style-type: none;
+    height: 100px;
+    border: none black;
+    overflow: auto;
+    padding: 10px;
+    border-radius: 5px; /* Added missing border-radius value */
+  }
+  
+  #box2 ol li{
+    margin: 10px;
+  }
+  
+  #box2 ol button{
+    color: white;
+    transform: scale(1.3);
+    border: none;
+    background: rgb(0, 145, 255);
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+  }
+  
+  #box2 ol button:hover{
+    background: rgb(119, 0, 0);
+    transition: all 0.2s linear;
+  }
+  
+  #box2 #cancel2{
+    color: white;
+    transform: scale(1.3);
+    border: none;
+    background: rgb(49, 49, 49);
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-right: 248px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+  }
+  
+  #box2 #cancel2:hover{
+    background: rgb(0, 0, 0);
+    transform: scale(1.22);
+  }
+  
+   #box2 #finalize2{
+    color: white;
+    transform: scale(1.3);
+    border: none;
+    background: rgb(119, 0, 0);
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-right: 8px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+   }
+  
+   #box2 #finalize2:hover{
+    background: rgb(222, 0, 0); /* Corrected extra '0)' */
+    transform: scale(1.22);
+  }
+  
+  .creating {
+    margin-top: 5px;
+  }
+  
+  #newName {
+    margin-bottom: 30px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+    border: solid black;
+    border-radius: 20px;
+    font-size: 15px;
+  }
+  
+  #cancel {
+    margin-right: 90px;
+    border: none;
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    font-size: 15px;
+    background: rgb(153, 0, 0);
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  
+  #cancel:hover {
+    box-shadow: 0 0 1rem red;
+    transition: all 0.5s;
+  }
+  
+  #finalize {
+    border: none;
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    font-size: 16px;
+    background: rgb(0, 154, 21);
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  
+  #finalize:hover {
+    box-shadow: 0 0 1rem rgb(0, 255, 68);
+    transition: all 0.5s;
+  }
+  
+  #finalize:active {
+    background: black;
+    color: white;
+    transform: scale(0.95);
+    box-shadow: 0 0 2rem rgb(0, 255, 68);
+    transition: all 0s;
+  }
+  
+  .center{
+    margin-top: 39%;
+    translate: 30vh 30vh;
+    text-align: center;
+    color: white;
+    z-index: -999;
+    position: absolute;
+    
+  }
+
+  .center h3{
+    font-size: 27px;
+  }
+
+  .center h1{
+    font-size: 48px;
+    margin-bottom: 60px;
+  }
+
+  hr{
+    display: none;
+  }
+}
+
+/* 1. version 1 */
