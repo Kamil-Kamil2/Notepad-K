@@ -374,7 +374,7 @@ li .openedNote:hover {
     padding: 0;
     display: block;
     background-color: #003049;
-    transform: scale(0.62); 
+    transform: scale(0.4); 
     transform-origin: top left;
   }
   
@@ -451,7 +451,8 @@ li .openedNote:hover {
     overflow: auto;
     margin-top: -10px;
     margin-left: 145px;
-    width: 90vw; /* Changed from 170vw to prevent horizontal scroll */
+    width: 90vw;
+    translate: 110px 0;
   }
   
   .pad {
